@@ -1,4 +1,7 @@
 import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 
 interface OwnProps {
     onSend: (UserMessage: string) => void
@@ -32,11 +35,17 @@ export class ChatInput extends React.Component<OwnProps, OwnState> {
     render() {
         return (
             <form className="chat-input" onSubmit={this.submitHandler}>
-                <input type="text"
+                <TextField type="text"
+                    id="standard"
+                    label="Введите сообщение..."
                     onChange={this.textChangeHandler}
                     value={this.state.chatInput}
-                    placeholder="Write a UserMessage..."
-                    required />
+                    variant="standard"
+                    required
+                />
+                <Button variant="contained" endIcon={<SendIcon />} onClick={this.submitHandler}>
+                    Отправить
+                </Button>
             </form>
         );
     }

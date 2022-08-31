@@ -1,13 +1,12 @@
 import * as React from 'react';
 import * as redux from 'redux';
 import { connect } from 'react-redux';
-
-import { Message as MessageModel, UserMessage } from './models';
-import { ChatState } from './state';
-import { Action } from './actions';
-
+import { Message as MessageModel } from '../models';
+import { ChatState } from '../state';
+import { Action } from '../actions';
 import { Messages } from './Messages';
 import { ChatInput } from './ChatInput';
+import Grid from '@mui/material/Grid';
 
 const mapStateToProps = (state: ChatState, ownProps: OwnProps): ConnectedState => ({
     messages: state.messages
@@ -42,14 +41,16 @@ export class ChatAppComponent extends React.Component<ConnectedState & Connected
 
     render() {
         return (
-            <div className="container">
-                <h3>React Chat App</h3>
-                <Messages username={this.props.username} messages={this.props.messages} />
-                <ChatInput onSend={this.sendHandler} />
-            </div>
+            <>
+                <Grid container justifyContent="center" sx={{ width: '100%', padding: '5px' }}>
+                    <Messages username={this.props.username} messages={this.props.messages} />
+                </Grid>
+                <Grid container justifyContent="center" sx={{ width: '100%', padding: '5px' }}>
+                    <ChatInput onSend={this.sendHandler} />
+                </Grid>
+            </>
         );
     }
 }
 
-// export const ChatApp: React.ComponentClass<OwnProps> = connect(mapStateToProps, mapDispatchToProps)(ChatAppComponent);
 export const ChatApp: any = connect(mapStateToProps, mapDispatchToProps)(ChatAppComponent);

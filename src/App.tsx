@@ -1,38 +1,14 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import * as React from 'react';
 import * as redux from 'redux';
 import { connect } from 'react-redux';
-
 import { Action, addUserAction } from './actions';
 import { ChatState } from './state';
-
-import { ChatApp } from './ChatApp';
+import { ChatApp } from './components/ChatApp';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
 
 const mapStateToProps = (state: ChatState, ownProps: OwnProps): ConnectedState => ({});
 
@@ -84,19 +60,27 @@ export class AppComponent extends React.Component<ConnectedState & ConnectedDisp
     }
     return (
       <form onSubmit={this.usernameSubmitHandler} className="username-container">
-        <h1>React Instant Chat</h1>
-        <div>
-          <input
-            type="text"
+        <Grid container justifyContent="center" marginTop='10%' marginBottom='20%'>
+          <Typography variant="h2" gutterBottom>
+            Добро пожаловать в чат!
+          </Typography>
+        </Grid>
+        <Grid container justifyContent="center">
+          <TextField type="text"
+            id="standard"
+            label="Введите имя..."
             onChange={this.usernameChangeHandler}
-            placeholder="Enter a username..."
-            required />
-        </div>
-        <input type="submit" value="Submit" />
+            variant="standard"
+            sx={{ width: '50%', padding: '5px' }}
+            required
+          />
+          <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+            Ввести
+          </Button>
+        </Grid>
       </form>
     );
   }
 }
 
-// export const App: React.ComponentClass<OwnProps> = connect(mapStateToProps, mapDispatchToProps)(AppComponent);
 export const App: any = connect(mapStateToProps, mapDispatchToProps)(AppComponent);

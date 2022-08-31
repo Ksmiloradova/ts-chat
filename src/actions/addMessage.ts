@@ -1,4 +1,4 @@
-import { Action } from '../actions';
+import { Action } from './index';
 import { ChatState } from '../state';
 
 const initialState: ChatState = {

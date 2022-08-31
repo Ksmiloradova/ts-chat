@@ -12,7 +12,7 @@ export function addUser(state: ChatState = initialState, action: Action): ChatSt
     if (action.type === 'ADD_USER') {
         const joinedUserMessageObject: MessageModel = {
             name: action.username,
-            message: " присоединился к чату"
+            message: "в чате"
         }
         const joinedUserMessage: MessageModel = new UserMessage(JSON.stringify(joinedUserMessageObject));
         action.socket.send(JSON.stringify(joinedUserMessage));

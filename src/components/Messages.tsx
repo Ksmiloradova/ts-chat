@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Message as MessageModel } from '../models';
-import { Message } from './Message';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { blue } from '@mui/material/colors';
+
 
 interface OwnProps {
     username: string,
@@ -27,17 +27,7 @@ export class Messages extends React.Component<OwnProps, OwnState> {
     }
 
     render() {
-        // Loop through all the messages in the state and create a Message component
-        const messages = this.props.messages.map((message: MessageModel, i) => {
-            return (
-                <Message
-                    key={i}
-                    username={message.name}
-                    message={message.message}
-                    fromMe={message.name === this.props.username} />
-            );
-        });
-
+        // Loop through all the messages in the state and create a Message List component
         return (
             <Box sx={{ width: '100%', maxWidth: 500 }}>
                 <List id='messageList' sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
@@ -45,7 +35,7 @@ export class Messages extends React.Component<OwnProps, OwnState> {
                         <ListItem key={message.message + Math.floor((Math.random() * 10000) + 1)} alignItems="flex-start">
                             {/* <Divider variant="inset" component="li" /> */}
                             <ListItemAvatar>
-                                <Avatar alt={message.name} src="/static/images/avatar/1.jpg" />
+                                <Avatar alt={message.name} sx={{ bgcolor: blue[100] }} src="/static/images/avatar/1.jpg" />
                             </ListItemAvatar>
                             <ListItemText
                                 primary={message.name}
