@@ -17,6 +17,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "testServer": "echo \"Error: no test specified\" && exit 1",
+    "buildServer": "tsc --removeComments --module commonjs --target ES5 --outDir build src/server.ts",
+    "startServer": "node ./build/server.js",
+    "testClient": "echo \"Error: no test specified\" && exit 1",
+    "watchClient": "webpack-dev-server --compress --history-api-fallback --progress --host 0.0.0.0 --port 3005",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
