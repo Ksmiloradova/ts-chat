@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createStore, compose, Reducer } from 'redux';
+import { createStore, Reducer } from 'redux';
 import { Provider } from 'react-redux';
 import { Action, addMessageAction } from './actions';
 import { addMessage } from './actions/addMessage';
@@ -10,7 +10,7 @@ import { UserMessage } from './models';
 import { ChatState } from './state';
 import reportWebVitals from "./reportWebVitals";
 
-const socket: WebSocket = new WebSocket("ws://localhost:3000");
+const socket: WebSocket = new WebSocket("ws://localhost:3009");
 
 // For every reducer in our list, send the given action
 function combineReducers(...reducers: Reducer<ChatState>[]) {
