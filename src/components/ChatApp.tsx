@@ -42,10 +42,10 @@ export class ChatAppComponent extends React.Component<ConnectedState & Connected
     render() {
         return (
             <>
-                <Grid container justifyContent="center" sx={{ width: '100%', padding: '5px' }}>
+                <Grid container justifyContent="center">
                     <Messages username={this.props.username} messages={this.props.messages} />
                 </Grid>
-                <Grid container justifyContent="center" sx={{ width: '100%', padding: '5px' }}>
+                <Grid container justifyContent="center">
                     <ChatInput onSend={this.sendHandler} />
                 </Grid>
             </>

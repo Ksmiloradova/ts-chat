@@ -49,5 +49,4 @@ export class ChatInput extends React.Component<OwnProps, OwnState> {
             </form>
         );
     }
-
 }

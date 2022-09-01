@@ -14,9 +14,7 @@ server.on('connection', ws => {
         try {
             const userMessage: UserMessage = new UserMessage(message.toString());
             broadcast(JSON.stringify(userMessage));
-        } catch (e: any) {
-            console.error(e.message);
-        }
+        } catch (e: any) { }
     });
 });
 

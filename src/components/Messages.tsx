@@ -29,7 +29,7 @@ export class Messages extends React.Component<OwnProps, OwnState> {
     render() {
         // Loop through all the messages in the state and create a Message List component
         return (
-            <Box sx={{ width: '100%', maxWidth: 500 }}>
+            <Box sx={{ width: '100%' }}>
                 <List id='messageList' sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                     {this.props.messages.map(message => (
                         <ListItem key={message.message + Math.floor((Math.random() * 10000) + 1)} alignItems="flex-start">

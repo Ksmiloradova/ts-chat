@@ -8,7 +8,6 @@ const initialState: ChatState = {
 
 export function addMessage(state: ChatState = initialState, action: Action): ChatState {
     if (action.type === 'ADD_MESSAGE') {
-        console.log("ADDING MESSAGE");
         return {
             messages: [...state.messages, action.message],
             users: state.users
